@@ -1,0 +1,39 @@
+<style>
+      table {
+    margin-top: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  table th{
+    padding: 20px;
+    font-size: 20px;
+    border-right: 1px solid black;
+  }
+  table td{
+    padding: 20px;
+    font-size: 20px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+  }
+  button{
+    /* height: 20px; */
+    font-size: 20px;
+    border-radius: 10px;
+  }
+  button:nth-child(2){
+    margin-left: 5px;
+  }
+</style>
+
+<a [routerLink]="['/new']">Add an author</a>
+<h4>We have quotes by: </h4>
+<table>
+    <tr>
+        <th>Author</th>
+        <th>Actions available</th>
+    </tr>
+    <tr *ngFor = "let author of allAuthors" >
+        <td>{{author.name}}</td>
+        <td><button routerLink="/edit/{{author._id}}">Edit</button><button (click) = 'deleteRecord(author._id)'>Delete</button></td>
+    </tr>
+</table>

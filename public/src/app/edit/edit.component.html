@@ -1,0 +1,32 @@
+<style>
+    .addAuthor{
+        padding: 10px;
+        border: 1px solid blue;
+        border-radius: 10px;
+    }
+    .addAuthor input{
+        margin-right: 2000px;
+    }
+    .cancel, .submit{
+        margin-top: 30px;
+        height: 40px;
+        /* width: 50px; */
+        font-size: 20px;
+        border-radius: 10px;
+        
+    }
+    .submit{
+        margin-left: 10px;
+        
+    }
+</style>
+
+<a [routerLink]="['/']">Home</a>
+<h4>Edit the author: </h4>
+<div class='addAuthor'>
+    <form (submit) = 'editAuthor(editThisAuthor._id)' >
+        Name: <input type = 'text' name='name' [value] = 'editThisAuthor.name' [(ngModel)] = 'authorUpdate.name'>
+        <button [routerLink]="['/']" class='cancel'>Cancel</button>
+        <button class='submit'>Submit</button>
+    </form>
+</div>
